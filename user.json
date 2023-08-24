@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "username": "john.doe",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "password": "johnpassword",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "user"
+  },
+  {
+    "id": 2,
+    "username": "jane.smith",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith@example.com",
+    "password": "janepassword",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "admin"
+  },
+  {
+    "id": 3,
+    "username": "jack.jones",
+    "firstName": "Jack",
+    "lastName": "Jones",
+    "email": "jack.jones@example.com",
+    "password": "jackpassword",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "admin"
+  },
+  {
+    "id": 5,
+    "username": "jenny.jackson",
+    "firstName": "Jenny",
+    "lastName": "Jackson",
+    "email": "jenny.jackson@example.com",
+    "password": "jennypassword",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "user"
+  },
+  {
+    "id": 6,
+    "username": "christian.jackson",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "christian.jackson@example.com",
+    "password": "christianpassword",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "developer"
+  },
+  {
+    "id": 7,
+    "username": "designer1",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer1@example.com",
+    "password": "designer1password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 8,
+    "username": "designer2",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer2@example.com",
+    "password": "designer2password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "developer"
+  },
+  {
+    "id": 9,
+    "username": "designer3",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer3@example.com",
+    "password": "designer3password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 10,
+    "username": "designer4",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer4@example.com",
+    "password": "designer4password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 13,
+    "username": "designer7",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer7@example.com",
+    "password": "designer7password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 14,
+    "username": "designer8",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer8@example.com",
+    "password": "designer8password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 15,
+    "username": "designer9",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer9@example.com",
+    "password": "designer9password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 16,
+    "username": "designer10",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer10@example.com",
+    "password": "designer10password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 17,
+    "username": "designer11",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer11@example.com",
+    "password": "designer11password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 18,
+    "username": "andrew.jackson",
+    "firstName": "Andrew",
+    "lastName": "Jackson",
+    "email": "andrew.jackson@example.com",
+    "password": "andrewpassword",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "model"
+  },
+  {
+    "id": 19,
+    "username": "risan.jason",
+    "firstName": "Risan",
+    "lastName": "Jason",
+    "email": "risan.jason@example.com",
+    "password": "risanpassword",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "user"
+  },
+  {
+    "id": 20,
+    "username": "designer12",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer12@example.com",
+    "password": "designer12password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "designer"
+  },
+  {
+    "id": 21,
+    "username": "designer13",
+    "firstName": "Christian",
+    "lastName": "Jackson",
+    "email": "designer13@example.com",
+    "password": "designer13password",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "developer"
+  },
+  {
+    "id": 22,
+    "username": "abhisheknaagar",
+    "firstName": "abhishek",
+    "lastName": "naagar",
+    "email": "abhishek@gmail.com",
+    "role": "developer",
+    "password": "123456789",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo"
+  },
+  {
+    "id": 23,
+    "username": "abhisheknaagar",
+    "firstName": "abhishek",
+    "lastName": "naagar",
+    "email": "abhishek@gmail.com",
+    "role": "developer",
+    "password": "123456789",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo"
+  },
+  {
+    "id": 24,
+    "username": "ABhishekNAaagar",
+    "firstName": "ABhishek",
+    "lastName": "NAaagar",
+    "email": "abhishek@gmail.com",
+    "password": "Abhishek@1998",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo",
+    "role": "user"
+  },
+  {
+    "id": 25,
+    "username": "abhisheknaagar",
+    "firstName": "abhishek",
+    "lastName": "naagar",
+    "email": "abhishek@gmail.com",
+    "role": "user",
+    "password": "Abhishek",
+    "image": "https://lh3.googleusercontent.com/ogw/AGvuzYYsXTSKE7m-F3putHCdLweZEhz6HyG9DBafl2ih=s64-c-mo"
+  }
+]
