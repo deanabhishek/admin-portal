@@ -35,7 +35,7 @@ const ChangeRolePage = () => {
   const handleRoleChange = async () => {
     setIsUpdating(true);
     try {
-      const updatedUser = await updateRole(userId, newRole); // Implement this API function
+      const updatedUser = await updateRole(userId, newRole);
       console.log(updatedUser);
       if (updatedUser.status === "success") {
         setUser(updatedUser.data);

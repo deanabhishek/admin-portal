@@ -11,7 +11,7 @@ const RoleChangePopup = ({ user, onClose }) => {
       const updatedUser = await updateRole(user.id, newRole); // Update the API call
       console.log(updatedUser);
       if (updatedUser.status === "success") {
-        onClose(); // Close the popup
+        onClose();
       }
     } catch (error) {
       console.error("Error updating user role:", error);
