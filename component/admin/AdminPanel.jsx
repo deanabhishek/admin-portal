@@ -7,6 +7,8 @@ import RoleChangePopup from "./RoleChangePop";
 import ConfirmationModal from "./confirmDelete";
 import Popup from "../messages/PopUps";
 import AddNewRole from "./AddNewRole";
+import DataTableStyle from "./utils/DataTableStyle";
+import Columns from "./utils/Columns";
 
 function AdminPanel() {
   const router = useRouter();
@@ -76,85 +78,74 @@ function AdminPanel() {
       user.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       user.lastName.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  // Columns for DataTable
-  const columns = [
-    {
-      name: "ID",
-      selector: "id",
-      sortable: true,
-    },
-    {
-      name: "First Name",
-      selector: "firstName",
-      sortable: true,
-    },
-    {
-      name: "Last Name",
-      selector: "lastName",
-      sortable: true,
-    },
-    {
-      name: "Role",
-      selector: "role",
-      sortable: true,
-    },
-    {
-      name: "Actions",
-      cell: (row) => (
-        <button
-          className="bg-lime-500 hover:bg-lime-400 text-white px-3 py-1 rounded"
-          onClick={() => handleRoleChangeClick(row)}
-        >
-          Change Roles
-        </button>
-      ),
-    },
-    {
-      name: "Delete",
-      cell: (row) => (
-        <button
-          className="bg-red-500 hover:bg-red-400 text-white px-3 py-1 rounded"
-          onClick={() => onDeleteUser(row.id)}
-        >
-          {isDeleting ? "Deleting..." : "Delete"}
-        </button>
-      ),
-    },
-  ];
-
-  // Render the AdminPanel component
-  return (
-    <div className="w-full bg-white h-full">
-      <div className="bg-white rounded-lg shadow-lg p-5">
-        <div className="flex items-center justify-between">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-black">
-            Admin Panel
-          </h2>
-          <button
-            className="bg-blue-500 hover:bg-blue-400 text-white px-3 py-1 rounded"
-            onClick={() => setIsAddRoleOpen(true)}
+  const CustomPagination = () => {
+    return (
+      <div className="flex items-center justify-between mt-5 bg-white">
+        {/* Rows per page dropdown */}
+        <div className="flex items-center">
+          <select
+            className="p-[2px 3px 2px 3px] rounded-lg  border-gray-300 mr-2"
+            value={limit}
+            onChange={(e) => {
+              setLimit(Number(e.target.value));
+              setCurrentPage(1); // Reset page when changing rows per page
+            }}
           >
-            Add New Role
-          </button>
+            <option value={5}>Show 5</option>
+            <option value={10}>Show 10</option>
+            <option value={20}>Show 20</option>
+            <option value={50}>Show 50</option>
+            <option value={count}>Show All</option>
+          </select>
         </div>
 
-        <div className="h-[75vh] overflow-y-scroll overflow-x-scroll">
+        {/* Pagination buttons */}
+        <div className="flex items-center px-2">
+          <button
+            className="pagination-left"
+            onClick={() => setCurrentPage(1)}
+            disabled={currentPage === 1}
+          ></button>
+          <button
+            className="pagination-left"
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+          ></button>
+          <span className="mr-2">
+            Page {currentPage} of {Math.ceil(count / limit)}
+          </span>
+          <button
+            className="pagination-right"
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={currentPage === Math.ceil(count / limit)}
+          ></button>
+          <button
+            className="pagination-right"
+            onClick={() => setCurrentPage(Math.ceil(count / limit))}
+            disabled={currentPage === Math.ceil(count / limit)}
+          ></button>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="w-full bg-[#f4f4f5] p-5">
+      <div className="bg-white rounded-xl shadow-lg p-5">
+        <div className="h-100 overflow-y-hidden overflow-x-scroll rounded-lg shadow max-w-7xl">
           {/* DataTable */}
           <DataTable
-            columns={columns}
+            striped
+            columns={Columns.Columns(handleRoleChangeClick, onDeleteUser)}
             data={filteredUsers} // Use the fetched data for pagination
             pagination
-            customStyles={{
-              table: {
-                maxHeight: "50vh", // Set maximum height to 50vh
-                border: "1px solid #e2e8f0",
-                backgroundColor: "#F7FAFC", // Set a light background color
-              },
-              tableWrapper: {
-                overflowY: "scroll", // Make the content scrollable
-              },
-            }}
+            responsive
+            customStyles={DataTableStyle}
+            fixedHeader
+            highlightOnHover
+            paginationPerPage={limit}
+            fixedHeaderScrollHeight="50vh"
+            paginationDefaultPage={currentPage} // Set the initial page number
             paginationServer={true} // Use server-side pagination
             paginationTotalRows={count} // Total rows count
             onChangeRowsPerPage={(newLimit) => {
@@ -174,15 +165,18 @@ function AdminPanel() {
             }}
             subHeader
             subHeaderComponent={
-              <input
-                type="search"
-                placeholder="Search users..."
-                className="p-2 border border-gray-300 rounded"
-                style={{ backgroundColor: "#EDF2F7" }} // Set search input background color
-                onChange={handleSearch}
-                value={searchQuery}
-              />
+              <div className="flex items-center justify-between mb-4 w-full">
+                <h2>Users</h2>
+                <input
+                  type="search"
+                  placeholder="Search users..."
+                  className="searchbar"
+                  onChange={handleSearch}
+                  value={searchQuery}
+                />{" "}
+              </div>
             }
+            paginationComponent={CustomPagination}
           />
 
           {/* Role Change Popup */}

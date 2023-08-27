@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { userRegister } from "../api/user";
-
+import createUser from "../../resources/create-user.png";
 function NewUserForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [role, setRole] = useState("user");
+  const [department, setDepartment] = useState("");
+  const [employerCode, setEmployerCode] = useState("");
 
   const handleNewUser = async (e) => {
     e.preventDefault();
@@ -34,7 +37,7 @@ function NewUserForm() {
         lastName,
         password,
         email,
-        role: "user",
+        role,
       });
 
       if (response.error) {
@@ -55,112 +58,227 @@ function NewUserForm() {
     setPassword("");
     setConfirmPassword("");
     setEmail("");
+    setRole("user");
+    setDepartment("");
+    setEmployerCode("");
   };
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full h-screen :w-1/2 bg-blue-100">
-        <h1 className="text-2xl font-semibold text-gray-900 mb-6">
-          Register New User
-        </h1>
-        <form onSubmit={handleNewUser} className="w-full max-w-sm mx-auto">
-          <div className="flex items-center justify-between mb-6">
-            <label
-              htmlFor="firstName"
-              className="block mb-2 text-sm font-medium text-gray-900 flex-1"
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              className="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="John"
-              required
-            />
-          </div>
-          <div className="flex items-center justify-between mb-6">
-            <label
-              htmlFor="lastName"
-              className="block mb-2 text-sm font-medium text-gray-900 flex-1"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              className="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder="Doe"
-              required
-            />
-          </div>
-          <div className="flex items-center justify-between mb-6">
-            <label
-              htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 flex-1"
-            >
-              Your Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="name@flowbite.com"
-              required
-            />
-          </div>
-          <div className="flex items-center justify-between mb-6">
-            <label
-              htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900 flex-1"
-            >
-              Your Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              required
-            />
-          </div>
-          <div className="flex items-center justify-between mb-6">
-            <label
-              htmlFor="confirmPassword"
-              className="block mb-2 text-sm font-medium text-gray-900 flex-1"
-            >
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-          </div>
+      {
+        <div className=" w-full h-auto bg-[#f5f5f5] p-5 rounded">
+          <form>
+            <div className="bg-white rounded ">
+              <div className="bg-[#1f2937] rounded-t px-5 py-3 color-white">
+                <h2 className="text-base font-semibold leading-7 text-white">
+                  <div className="custom-image" />
+                  Create New User
+                </h2>
+                <p className="mt-1 text-sm leading-6 text-white">
+                  Please fill in the information below to create a new user.
+                </p>
+              </div>
 
-          <button
-            type="submit"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center "
-          >
-            Submit
-          </button>
-        </form>
-      </div>
+              <div className=" flex flex-col p-5">
+                <div className="w-full flex flex-row gap-x-8 gap-y-4">
+                  <div className="flex-1">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      First name
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        name="first-name"
+                        id="first-name"
+                        required
+                        autoComplete="given-name"
+                        onChange={(e) => setFirstName(e.target.value)}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <label
+                      htmlFor="last-name"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Last name
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        name="last-name"
+                        id="last-name"
+                        required
+                        onChange={(e) => setLastName(e.target.value)}
+                        autoComplete="family-name"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full flex flex-row gap-8">
+                  <div className="flex-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Email address
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        id="email"
+                        required
+                        name="email"
+                        type="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        autoComplete="email"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <label
+                      htmlFor="roles"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Select Role{" "}
+                    </label>
+                    <div className="mt-2">
+                      <select
+                        id="roles"
+                        required
+                        name="roles"
+                        autoComplete="roles"
+                        onChange={(e) => setRole(e.target.value)}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                      >
+                        <option value="" disabled>
+                          Select Role
+                        </option>
+                        {[
+                          "user",
+                          "admin",
+                          "developer",
+                          "designer",
+                          "model",
+                        ].map((role) => (
+                          <option key={role} value={role}>
+                            {role.charAt(0).toUpperCase() + role.slice(1)}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full flex flex-row gap-8">
+                  <div className="flex-1">
+                    <label
+                      htmlFor="department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Department
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        name="department"
+                        id="department"
+                        required
+                        autoComplete="department"
+                        onChange={(e) => setDepartment(e.target.value)}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <label
+                      htmlFor="Employer Code"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Employer Code
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        name="Employer Code"
+                        id="Employer Code"
+                        required
+                        autoComplete="Employer Code"
+                        onChange={(e) => setEmployerCode(e.target.value)}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full flex flex-row gap-8">
+                  <div className="flex-1">
+                    <label
+                      htmlFor="password"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Password
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        autoComplete="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <label
+                      htmlFor="password"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Confirm Password
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        autoComplete="password"
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 flex items-center justify-end gap-x-6">
+                  <button
+                    type="button"
+                    onClick={() => clearFormFields()}
+                    className="text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50 border border-gray-300 rounded-md px-2 py-2"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    onClick={handleNewUser}
+                    className="rounded-md bg-indigo-600 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Save
+                  </button>
+                </div>{" "}
+              </div>
+            </div>
+          </form>
+        </div>
+      }
       <ToastContainer />
     </>
   );

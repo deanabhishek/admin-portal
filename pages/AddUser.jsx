@@ -8,8 +8,8 @@ function AddUser() {
     <div>
       <Navbar />
       <div className="flex flex-row h-screen">
-        <Sidebar />
-        <NewUserForm />
+        <Sidebar className="w-1/5" />
+        <NewUserForm className="w-4/5" />
       </div>
     </div>
   );

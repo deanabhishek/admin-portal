@@ -9,8 +9,8 @@ function DashBoard() {
     <div className="flex flex-col h-screen">
       <Navbar />
       <div className="flex flex-row h-screen">
-        <Sidebar />
-        <AdminPanel />
+        <Sidebar className="w-1/5" />
+        <AdminPanel className="w-4/5" />
       </div>
     </div>
   );
